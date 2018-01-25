@@ -11,8 +11,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<MovieItems>>  {
 
@@ -33,19 +35,23 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         listView.setAdapter(adapter);
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MovieItems movie = (MovieItems) listItems.get(position);
+//                MovieItems movie = (MovieItems) listItem.get(position);
+//
+//                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+//                intent.putExtra(DetailActivity.KEY_ITEM, movie);
+//                startActivityForResult(intent, 0);
 
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra(DetailActivity.KEY_ITEM, movie);
-                startActivityForResult(intent, 0);
+//                Toast.makeText(MainActivity.this, "Kamu klik : "+ adapter[position], Toast.LENGTH_LONG).show();
             }
         });
 
-        cariFilm = (EditText)findViewById(R.id.edit_kota);
-        buttonCari = (Button)findViewById(R.id.btn_kota);
+        cariFilm = (EditText)findViewById(R.id.edit_judul);
+        buttonCari = (Button)findViewById(R.id.btn_cari);
 
         buttonCari.setOnClickListener(myListener);
 
