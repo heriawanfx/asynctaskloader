@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     MovieAdapter adapter;
     EditText cariFilm;
     Button buttonCari;
+    ArrayList listItem;
 
     static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     @Override
@@ -36,17 +37,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         listView.setAdapter(adapter);
 
 
+        listItem = new ArrayList<MovieItems>();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                MovieItems movie = (MovieItems) listItem.get(position);
+                MovieItems movie = (MovieItems) listItem.get(position);
 //
 //                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
 //                intent.putExtra(DetailActivity.KEY_ITEM, movie);
 //                startActivityForResult(intent, 0);
 
-//                Toast.makeText(MainActivity.this, "Kamu klik : "+ adapter[position], Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Kamu klik : "+ listItem.get(position), Toast.LENGTH_LONG).show();
             }
         });
 
